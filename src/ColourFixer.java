@@ -7,6 +7,7 @@ import javax.swing.*;
 public class ColourFixer {
     JFrame colourFixerFrame;
     JPanel colourFixerPanel;
+    JTextField[] colourFixerTextFields;
     private void setupGUI(int width, int height) {
         colourFixerFrame = new JFrame("Colour Fixing Assist");
         colourFixerFrame.setSize(width, height);
@@ -29,8 +30,13 @@ public class ColourFixer {
         setupGUI(800, 600);
         String[] colourPie = {"W", "U", "B", "R", "G"};
         for (int i = 0; i < colourPie.length; i++) {
-
+            JPanel colourPanel = new JPanel();
+            JLabel colourLabel = new JLabel(colourPie[i]);
             JTextField colourField = new JTextField();
+            colourPanel.add(colourLabel);
+            colourPanel.add(colourField);
+            colourFixerTextFields[i] = colourField;
+            colourFixerPanel.add(colourPanel);
         }
     }
 }
